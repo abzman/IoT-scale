@@ -1,0 +1,15 @@
+sensor:
+  - platform: mqtt
+    name: "Scale"
+    state_topic: "tele/evan/inside/bathroom/scale"
+    unit_of_measurement: "kg"
+    availability_topic: "tele/evan/inside/bathroom/scale/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+  - platform: mqtt
+    name: "Scale Raw"
+    state_topic: "tele/evan/inside/bathroom/scale/raw"
+    unit_of_measurement: "raw"
+    availability_topic: "tele/evan/inside/bathroom/scale/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
