@@ -68,6 +68,7 @@ void setup() {
   Serial.println("Scale Zeroed");
   lcd.print("Scale Zeroed");
   delay(500);
+  lcd.noBacklight();
 }
 
 void loop() {
@@ -113,6 +114,11 @@ void loop() {
   if ((abs(reading - last_reading) < 1) && reading > 80) // measure my weight
   {
     client.publish(STATE_TOPIC, (char *)value_str.c_str());               // Publish weight to the STATE topic
+    lcd.backlight();
+  }
+  else
+  {
+    lcd.noBacklight();
   }
   client.publish(STATE_RAW_TOPIC, (char *)value_raw_str.c_str());       // Publish raw value to the RAW topic
   client.publish(AVAILABILITY_TOPIC, "Online");         // Once connected, publish online to the availability topic
